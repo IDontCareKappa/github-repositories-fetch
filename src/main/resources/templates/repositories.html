@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${siteTitle}"></title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="../static/css/app.css" rel="stylesheet" th:href="@{/css/app.css}"/>
+
+
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<div class="row justify-content-center mt-5">
+    <div class="col-sm-8 ">
+        <a href="/repository">
+            <div class="btn" style="background-color: limegreen;">
+                HOME PAGE
+            </div>
+        </a>
+        <h1 class="h1 text-center" th:text="${siteTitle}" style="color: limegreen;"></h1>
+        <div class="mt-4 mb-5 border border-secondary rounded shadow-lg bg-white repo-card" th:each="repo : ${repos}">
+            <a th:href= "${repo.getUrl()}">
+                <div class="card p-3">
+                    <h3 class="card-title">Name: <span th:text="${repo.getName()}"></span></h3>
+                    <h5 class="card-title">Owner: <span th:text="${repo.getOwner()}"></span></h5>
+                    <p class="card-text" th:if="${repo.getDescription() != null}">Description: <span
+                            th:text="${repo.getDescription()}"></span></p>
+                    <div class="row justify-content-center text-center">
+                        <p class="text-muted col-sm-4">Created at: <span th:text="${repo.getCreated_at()}"></span></p>
+                        <p class="text-muted col-sm-4">Stars: <span th:text="${repo.getStars()}"></span></p>
+                        <p class="text-muted col-sm-4">Language: <span th:text="${repo.getLanguage()}"></span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer th:fragment="footer" class="mt-auto p-5">
+    <div class="container-fluid col-8 px-4 fadeIn">
+        <div class="mt-10">
+            <h6 class="text-muted d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start">
+                COOPERATION AND CONTACT</h6>
+            <div class="row ">
+                <div class="col-sm-12 col-md-12 col-lg-8 my-auto d-flex justify-content-sm-center justify-content-md-center justify-content-lg-start">
+                    <a class="text-white h4" href="mailto:tostrowski2000@gmail.com">tostrowski2000@gmail.com</a>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 my-auto d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-end">
+                    <ul class="list-inline list-unstyled">
+                        <li class="list-inline-item">
+                            <a href="mailto:tostrowski2000@gmail.com" target="_blank" class="icon">
+                                <i class="fa fa-envelope gmail" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://github.com/IDontCareKappa" target="_blank" class="icon">
+                                <i class="fa fa-github-square github" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/tomasz-ostrowski-23a25b228/" target="_blank"
+                               class="icon">
+                                <i class="fa fa-linkedin-square linkedin" aria-hidden="true"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-12 mt-10 d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start">
+                    <p class="small text-muted">© 2022 DESIGNED & DEVELOPED BY TOMASZ OSTROWSKI.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

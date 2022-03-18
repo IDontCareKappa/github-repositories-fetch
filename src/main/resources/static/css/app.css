@@ -1,0 +1,55 @@
+body {
+    font-family: Consolas;
+    background-color: #101010;
+}
+
+.icon{
+    color: #fff;
+    transition-duration: 0.4s;
+    font-size: 2rem;
+}
+
+.icon:hover{
+    color: #bdbdbd;
+}
+
+.linkedin{
+    transition-duration: 0.4s;
+}
+
+
+.linkedin:hover{
+    color: #007bb5;
+}
+
+.github{
+    transition-duration: 0.4s;
+}
+
+
+.github:hover{
+    color: #000000;
+}
+
+.gmail{
+    transition-duration: 0.4s;
+}
+
+.gmail:hover{
+    color: #dd4b39;
+}
+
+.repo-card {
+    transition: 0.5s;
+
+}
+
+.repo-card a{
+    text-decoration: none;
+    color: black;
+}
+
+.repo-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
